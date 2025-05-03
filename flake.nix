@@ -17,8 +17,8 @@
         systems = [ "x86_64-linux" ];
         perSystem =
           { pkgs, ... }:
-          rec {
-            packages.default = pkgs.callPackage ./default.nix { };
+          {
+            packages.default = pkgs.python3.pkgs.callPackage ./default.nix { };
             devShells.default = pkgs.callPackage ./shell.nix { };
             formatter = pkgs.nixfmt-rfc-style;
           };

@@ -1,24 +1,24 @@
 {
-  stdenv,
-  python3,
+  buildPythonPackage,
+  hatchling,
+
+  distro,
+  psutil,
+  pynvml,
+  pydantic,
 }:
-stdenv.mkDerivation {
-  name = "cgserver-ddns-client";
-  buildInputs = [
-    (python3.withPackages (
-      ps: with ps; [
-        distro
-        psutil
-        pynvml
-        pydantic
-      ]
-    ))
-  ];
+buildPythonPackage {
+  pname = "cgserver-ddns-client";
+  version = "0-unstable-dev";
+  pyproject = true;
   src = ./.;
-  installPhase = ''
-    mkdir -p $out/bin
-    cp clienttask.py $out/bin/
-    install -m755 main.py $out/bin/$name
-    runHook postInstall
-  '';
+  nativeBuildInputs = [
+    hatchling
+  ];
+  dependencies = [
+    distro
+    psutil
+    pynvml
+    pydantic
+  ];
 }
