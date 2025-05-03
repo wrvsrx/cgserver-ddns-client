@@ -1,0 +1,12 @@
+[project]
+name = "cgserver-ddns-client"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "distro>=1.9.0",
+    "psutil>=7.0.0",
+    "pydantic>=2.11.4",
+    "pynvml>=12.0.0",
+]
