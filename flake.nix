@@ -19,7 +19,7 @@
           { pkgs, ... }:
           rec {
             packages.default = pkgs.callPackage ./default.nix { };
-            devShells.default = pkgs.mkShell { inputsFrom = [ packages.default ]; };
+            devShells.default = pkgs.callPackage ./shell.nix { };
             formatter = pkgs.nixfmt-rfc-style;
           };
       }
