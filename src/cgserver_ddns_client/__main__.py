@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import clienttask
+from cgserver_ddns_client import clienttask
 from urllib import request, parse
 import sys
 from pydantic import BaseModel

@@ -13,8 +13,8 @@ wheels = [
 
 [[package]]
 name = "cgserver-ddns-client"
-version = "0.1.0"
-source = { virtual = "." }
+version = "0.2.0"
+source = { editable = "." }
 dependencies = [
     { name = "distro" },
     { name = "psutil" },
@@ -29,6 +29,9 @@ requires-dist = [
     { name = "pydantic", specifier = ">=2.11.4" },
     { name = "pynvml", specifier = ">=12.0.0" },
 ]
+
+[package.metadata.requires-dev]
+dev = []
 
 [[package]]
 name = "distro"

@@ -5,7 +5,7 @@
 }:
 mkShell {
   env = {
-    UV_PYTHON = "${python3}/bin/python3";
+    UV_PYTHON_PREFERENCES = "system";
   };
   shellHook = ''
     source .venv/bin/activate
