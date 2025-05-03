@@ -120,5 +120,9 @@ def alltasks():
     return res
 
 
+def dump_info():
+    print(alltasks())
+
+
 if __name__ == "__main__":
-    pprint(alltasks())
+    dump_info()

@@ -26,3 +26,4 @@ dev = []
 
 [project.scripts]
 cgserver-ddns-client = "cgserver_ddns_client.__main__:main"
+cgserver-dump-info = "cgserver_ddns_client.clienttask:dump_info"
