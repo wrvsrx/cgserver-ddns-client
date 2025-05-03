@@ -9,6 +9,8 @@ import psutil
 import psutil._common
 import pynvml
 import time
+import importlib.metadata
+import json
 
 
 def disk_usage(path):
@@ -90,7 +92,7 @@ def gputask():
 
 def alltasks():
     res = dict(
-        version="0.1.3",
+        version=importlib.metadata.version(__package__ or "cgserver_ddns_client"),
         platform=platform.platform(),
         uname=platform.uname(),
         dist=(
@@ -123,7 +125,7 @@ def alltasks():
 
 
 def dump_info():
-    print(alltasks())
+    print(json.dumps(alltasks()))
 
 
 if __name__ == "__main__":
