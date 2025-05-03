@@ -2,15 +2,13 @@ from __future__ import division
 from __future__ import print_function
 from __future__ import unicode_literals
 
-import distro
 import os
+import distro
 import platform
 import psutil
 import psutil._common
 import pynvml
 import time
-
-from pprint import pprint
 
 
 def disk_usage(path):
@@ -95,7 +93,11 @@ def alltasks():
         version="0.1.3",
         platform=platform.platform(),
         uname=platform.uname(),
-        dist=distro.linux_distribution(),
+        dist=(
+            distro.name(),
+            distro.version(),
+            distro.os_release_attr("release_codename") or distro.codename(),
+        ),
         now=time.time(),
         boot_time=psutil.boot_time(),
         loadavg=hasattr(os, "getloadavg") and os.getloadavg() or None,
