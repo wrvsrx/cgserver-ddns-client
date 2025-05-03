@@ -24,7 +24,7 @@ def get_utilization_rates(handle):
             gpu=pynvml.nvmlDeviceGetUtilizationRates(handle).gpu,
             memory=pynvml.nvmlDeviceGetUtilizationRates(handle).memory,
         )
-    except pynvml.NVMLError_Unknown:  # type: ignore
+    except pynvml.NVMLError_Unknown:  # pyright: ignore
         return dict(
             gpu=None,
             memory=None,
@@ -34,7 +34,7 @@ def get_utilization_rates(handle):
 def get_fan_speed(handle):
     try:
         return pynvml.nvmlDeviceGetFanSpeed(handle)
-    except pynvml.NVMLError_NotSupported:  # type: ignore
+    except pynvml.NVMLError_NotSupported:  # pyright: ignore
         return None
 
 
@@ -42,7 +42,7 @@ def gputask():
     def get(index):
         try:
             handle = pynvml.nvmlDeviceGetHandleByIndex(index)
-        except pynvml.NVMLError_GpuIsLost:  # type: ignore
+        except pynvml.NVMLError_GpuIsLost:  # pyright: ignore
             return None
         memory_info = pynvml.nvmlDeviceGetMemoryInfo(handle)
         return dict(
